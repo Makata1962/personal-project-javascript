@@ -1,4 +1,6 @@
-class LMS {
+let count = 0;
+
+export class LMS {
   map = new Map();
 
   add(subject) {
@@ -23,13 +25,11 @@ class LMS {
       array.push(item);
     });
 
-    return array;
+    console.log(array);
   }
 }
 
-let count = 0;
-
-class Subject {
+export class Subject {
   constructor({ title, lessons, description }) {
     this.id = count++;
     this.title = title;
@@ -37,22 +37,3 @@ class Subject {
     this.description = description;
   }
 }
-
-const history = new Subject({
-  title: "History",
-  lessons: 24,
-  description: "good",
-});
-
-const math = new Subject({
-  title: "math",
-  lessons: 20,
-  description: "bad",
-});
-
-const lms = new LMS();
-
-lms.add(history);
-// lms.add(math);
-
-console.log(lms.verify(math));
