@@ -2,8 +2,14 @@ let count = 0;
 
 class Pupils {
   map = new Map();
-  constructor() {
+  constructor(name, dateOfBirth, phones, sex, subjects, description) {
     this.id = count++;
+    this.name = name;
+    this.dateOfBirth = dateOfBirth;
+    this.phones = phones;
+    this.sex = sex;
+    this.subjects = subjects;
+    this.description = description;
   }
   add(pupil) {
     this.map.set(this.id, pupil);
@@ -13,10 +19,10 @@ class Pupils {
     console.log(this.map.get(id));
   }
   update(id, pupil) {
-    this.map.set(id, pupil);
+    console.log(this.map.set(id, pupil));
   }
-  remove(id){
-    this.map.delete(pupil.id)
+  remove(id) {
+    this.map.delete(pupil.id);
   }
 }
 
@@ -50,7 +56,7 @@ const pupil = {
 const pupil2 = {
   name: {
     first: "Ilia",
-    last: "Pachulia",
+    last: "Kostava",
   },
   dateOfBirth: "string", // format date
   emails: [
@@ -74,11 +80,17 @@ const pupil2 = {
   description: "string",
 };
 
-// Create new Pupil from Pupil's data
-const Ilia = new Pupils();
+const pupil1 = new Pupils();
+const pupilId = pupil1.add(pupil);
 
-const pupilId = Ilia.add(pupil);
-Ilia.read(pupilId);
+const kostava = new Pupils();
+const kostavaId = kostava.add(pupil2);
+// console.log(pupilId2);
 
-Ilia.update(pupilId, pupil2);
-Ilia.read(pupilId);
+console.log(kostava)
+pupil1.read(pupilId);
+pupil1.read(kostavaId);
+
+// pupil1.update(pupilId, pupil2);
+
+// pupil1.remove(pupilId);

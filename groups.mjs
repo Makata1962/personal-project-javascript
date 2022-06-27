@@ -1,30 +1,39 @@
-let count = 0;
+export class Groups {
+  map = new Map();
 
-class Groups {
-  groups = new Groups();
-  room = 236;
+  constructor(id) {
+    this.id = 2;
+  }
 
-  add(groups) {
-    this.groups.set(groups.id, groups);
+  add(room) {
+    this.map.set(room.id, room);
   }
-  addPupil(groupId, pupil) {
-    this.groups.set(groupId.id, pupil);
+
+  remove(room) {
+    this.map.delete(room.id);
   }
-  removePupil(groupId, id) {
-    this.groups.delete(groupId, id);
+
+  verify(room) {
+    for (let [_, val] of this.map) {
+      if (JSON.stringify(room) == JSON.stringify(val)) {
+        return true;
+      } else return false;
+    }
   }
-  read(id) {
-    console.log(this.groups.get(id));
-  }
-  update(groupId, {}) {
-    this.groups.set(groupId, {});
-  }
+
   readAll() {
     let array = [];
-    let newArr = this.group.forEach(function (item) {
+    let newArr = this.map.forEach(function (item) {
       array.push(item);
     });
 
     console.log(array);
   }
 }
+
+const groups = new Groups();
+const room = 236;
+const groupId = groups.add(room);
+
+
+groups.addPupil(groupId, pupil);

@@ -1,7 +1,7 @@
 import { LMS, Subject } from "./lms.mjs";
 
 const history = new Subject({
-  title: "History",
+  title: 1,
   lessons: 24,
   description: "good",
 });
@@ -17,4 +17,6 @@ const lms = new LMS();
 lms.add(math);
 // lms.add(math);
 
-lms.readAll();
+lms.add(history);
+lms.remove(math)
+lms.readAll()
