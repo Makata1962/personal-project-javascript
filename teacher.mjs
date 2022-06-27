@@ -15,6 +15,9 @@ class Teachers {
   update(id, teacher) {
     this.map.set(id, teacher);
   }
+  remove(id) {
+    this.map.delete(teacher.id);
+  }
 }
 
 const teacher = {

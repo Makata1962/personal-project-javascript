@@ -15,6 +15,9 @@ class Pupils {
   update(id, pupil) {
     this.map.set(id, pupil);
   }
+  remove(id){
+    this.map.delete(pupil.id)
+  }
 }
 
 const pupil = {
