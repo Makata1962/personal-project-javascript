@@ -12,7 +12,9 @@ class Teachers {
   read(id) {
     console.log(this.map.get(id));
   }
-  
+  update(id, teacher) {
+    this.map.set(id, teacher);
+  }
 }
 
 const teacher = {
@@ -42,9 +44,39 @@ const teacher = {
   description: "string",
 };
 
+const teacher2 = {
+  name: {
+    first: "Ilia",
+    last: "Pachulia",
+  },
+  dateOfBirth: "string", // format date
+  emails: [
+    {
+      email: "string",
+      primary: "boolean",
+    },
+  ],
+  phones: [
+    {
+      phone: "string",
+      primary: "boolean",
+    },
+  ],
+  sex: "string", // male or female
+  subjects: [
+    {
+      subject: "string", // just name property of subject.
+    },
+  ],
+  description: "string",
+};
+
 const teachers = new Teachers();
 const teacherId = teachers.add(teacher);
 
+teachers.read(teacherId);
+
+teachers.update(teacherId, teacher2);
 teachers.read(teacherId);
 
 // const teacherId = teachers.add(data);
