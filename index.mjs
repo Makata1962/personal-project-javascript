@@ -18,5 +18,7 @@ lms.add(math);
 // lms.add(math);
 
 lms.add(history);
-lms.remove(math)
-lms.readAll()
+// lms.remove(math)
+// lms.readAll();
+
+lms.verify(math);

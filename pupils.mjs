@@ -4,12 +4,49 @@ class Pupils {
   map = new Map();
   constructor(name, dateOfBirth, phones, sex, subjects, description) {
     this.id = count++;
+    // if (name === undefined || typeof name !== "object") {
+    //   throw new TypeError("Name is not a object");
+    // }
     this.name = name;
+    // if (
+    //   dateOfBirth === undefined ||
+    //   typeof dateOfBirth !== "string" ||
+    //   dateOfBirth !== regex
+    // ) {
+    //   throw new TypeError("dateOfBirth is not a string or format is not valid");
+    // }
     this.dateOfBirth = dateOfBirth;
+
+    // if (
+    //   phones === undefined ||
+    //   Array.isArray(phones) ||
+    //   typeof phones[0].phone !== "string" ||
+    //   typeof emails[0].primary === "boolean"
+    // ) {
+    //   throw new TypeError("Phone is not a string or primary is not filled");
+    // }
     this.phones = phones;
+    // if (
+    //   sex === undefined ||
+    //   (typeof sex !== "string" && (sex !== "male" || sex !== "female"))
+    // ) {
+    //   throw new TypeError("You should choose Male or Female");
+    // }
+
     this.sex = sex;
+    // if (
+    //   subjects === undefined ||
+    //   Array.isArray(subjects) ||
+    //   subjects[0].subject !== "string"
+    // ) {
+    //   throw new TypeError("Subjects should be an array and subject - string");
+    // }
     this.subjects = subjects;
-    this.description = description;
+
+    //   if (typeof description !== "string") {
+    //     throw new TypeError("description should be a string");
+    //   }
+    //   this.description = description;
   }
   add(pupil) {
     this.map.set(this.id, pupil);
@@ -58,39 +95,35 @@ const pupil2 = {
     first: "Ilia",
     last: "Kostava",
   },
-  dateOfBirth: "string", // format date
+  dateOfBirth: "18/07/1998", // format date
   emails: [
     {
-      email: "string",
-      primary: "boolean",
+      email: "ipach17@freeuni.edu.ge",
+      primary: true,
     },
   ],
   phones: [
     {
-      phone: "string",
-      primary: "boolean",
+      phone: "592102793",
+      primary: true,
     },
   ],
-  sex: "string", // male or female
+  sex: "male", // male or female
   subjects: [
     {
-      subject: "string", // just name property of subject.
+      subject: "History", // just name property of subject.
     },
   ],
-  description: "string",
+  description: "",
 };
 
-const pupil1 = new Pupils();
-const pupilId = pupil1.add(pupil);
+const pupils = new Pupils();
+const pupilId = pupils.add(pupil);
+pupils.read(pupilId);
 
-const kostava = new Pupils();
-const kostavaId = kostava.add(pupil2);
-// console.log(pupilId2);
+const otherpupils = new Pupils();
+const otherpupilId = otherpupils.add(pupil2);
+otherpupils.read(otherpupilId);
 
-console.log(kostava)
-pupil1.read(pupilId);
-pupil1.read(kostavaId);
-
-// pupil1.update(pupilId, pupil2);
-
-// pupil1.remove(pupilId);
+pupils.update(pupilId,pupil2);
+pupils.read(pupilId);

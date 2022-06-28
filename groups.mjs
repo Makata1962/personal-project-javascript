@@ -1,12 +1,17 @@
-export class Groups {
+let count = 0;
+class Groups {
   map = new Map();
 
   constructor(id) {
-    this.id = 2;
+    this.id = count++;
   }
 
   add(room) {
+    // if (typeof room !== "number") {
+    //   throw new TypeError("Parameter should be integer");
+    // }
     this.map.set(room.id, room);
+    return room.id;
   }
 
   remove(room) {
@@ -21,6 +26,13 @@ export class Groups {
     }
   }
 
+  update(id, group) {
+    this.map.set(id, group);
+  }
+
+  read(id) {
+    console.log(this.map.get(id));
+  }
   readAll() {
     let array = [];
     let newArr = this.map.forEach(function (item) {
@@ -32,8 +44,20 @@ export class Groups {
 }
 
 const groups = new Groups();
-const room = 236;
-const groupId = groups.add(room);
+const classroom = {
+  id: "JEF5H43H",
+  room: 237,
+  pupils: [], // array of pupils.
+};
+const groupId = groups.add(classroom);
 
+// groups.read(groupId);
+// groups.readAll();
 
-groups.addPupil(groupId, pupil);
+groups.update(groupId, {
+  id: "asas",
+  room: 267,
+  pupils: [],
+});
+
+groups.read(groupId);

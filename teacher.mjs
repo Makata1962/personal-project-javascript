@@ -5,57 +5,57 @@ class Teachers {
   map = new Map();
   constructor(name, dateOfBirth, emails, phones, sex, subjects, description) {
     this.id = count++;
-    if (name === undefined || typeof name !== "object") {
-      throw new TypeError("Name is not a object");
-    }
+    // if (name === undefined || typeof name !== "object") {
+    //   throw new TypeError("Name is not a object");
+    // }
     this.name = name;
-    if (
-      dateOfBirth === undefined ||
-      typeof dateOfBirth !== "string" ||
-      dateOfBirth !== regex
-    ) {
-      throw new TypeError("dateOfBirth is not a string or format is not valid");
-    }
+    // if (
+    //   // dateOfBirth === undefined ||
+    //   typeof dateOfBirth !== "string"
+    // dateOfBirth !== regex
+    // ) {
+    //   throw new TypeError("dateOfBirth is not a string or format is not valid");
+    // }
     this.dateOfBirth = dateOfBirth;
-    if (
-      emails === undefined ||
-      Array.isArray(emails) ||
-      typeof emails[0].email !== "string" ||
-      typeof emails[0].primary === "boolean"
-    ) {
-      throw new TypeError("Email is not a string or primary is not filled");
-    }
+    // if (
+    //   emails === undefined ||
+    //   Array.isArray(emails) ||
+    //   typeof emails[0].email !== "string" ||
+    //   typeof emails[0].primary === "boolean"
+    // ) {
+    //   throw new TypeError("Email is not a string or primary is not filled");
+    // }
     this.emails = emails;
-    if (
-      phones === undefined ||
-      Array.isArray(phones) ||
-      typeof phones[0].phone !== "string" ||
-      typeof emails[0].primary === "boolean"
-    ) {
-      throw new TypeError("Phone is not a string or primary is not filled");
-    }
+    // if (
+    //   phones === undefined ||
+    //   Array.isArray(phones) ||
+    //   typeof phones[0].phone !== "string" ||
+    //   typeof emails[0].primary === "boolean"
+    // ) {
+    //   throw new TypeError("Phone is not a string or primary is not filled");
+    // }
     this.phones = phones;
 
-    if (
-      sex === undefined ||
-      (typeof sex !== "string" && (sex !== "male" || sex !== "female"))
-    ) {
-      throw new TypeError("You should choose Male or Female");
-    }
+    // if (
+    //   sex === undefined ||
+    //   (typeof sex !== "string" && (sex !== "male" || sex !== "female"))
+    // ) {
+    //   throw new TypeError("You should choose Male or Female");
+    // }
 
     this.sex = sex;
-    if (
-      subjects === undefined ||
-      Array.isArray(subjects) ||
-      subjects[0].subject !== "string"
-    ) {
-      throw new TypeError("Subjects should be an array and subject - string");
-    }
+    // if (
+    //   subjects === undefined ||
+    //   Array.isArray(subjects) ||
+    //   subjects[0].subject !== "string"
+    // ) {
+    //   throw new TypeError("Subjects should be an array and subject - string");
+    // }
     this.subjects = subjects;
-    if (typeof description !== "string") {
-      throw new TypeError("description should be a string");
-    }
-    this.description = description;
+    //   if (typeof description !== "string") {
+    //     throw new TypeError("description should be a string");
+    //   }
+    //   this.description = description;
   }
   add(teacher) {
     this.map.set(this.id, teacher);
@@ -69,7 +69,7 @@ class Teachers {
     return this.teacher;
   }
   remove(id) {
-    this.map.delete(teacher.id);
+    this.map.delete(id);
   }
 }
 
@@ -129,16 +129,16 @@ const teacher2 = {
 
 const teachers = new Teachers();
 const teacherId = teachers.add(teacher);
+
 const pachulia = new Teachers();
 const teacherId2 = pachulia.add(teacher2);
 
-teachers.remove(teacherId);
 teachers.read(teacherId);
-// teachers.read(teacherId2);
+pachulia.read(teacherId2);
 
-// teachers.read(teacherId);
+teachers.remove(teacherId);
 
-// const teacherId = teachers.add(data);
+teachers.update(teacherId, pachulia);
 
-// teachers.read(teacherId);
-// teachers.read(teacherId2);
+teachers.read(teacherId);
+pachulia.read(teacherId2);

@@ -32,17 +32,17 @@ export class LMS {
 export class Subject {
   constructor({ title, lessons, description }) {
     this.id = count++;
-    if (typeof title !== "string" || title === undefined) {
-      throw new TypeError("Title is not a string or it is an empty");
-    }
+    // if (typeof title !== "string" || title === undefined) {
+    //   throw new TypeError("Title is not a string or it is an empty");
+    // }
     this.title = title;
-     if (typeof lessons !== "number" || lessons === undefined) {
-       throw new TypeError("Lessons is not a number or it is an empty");
-     }
+    //  if (typeof lessons !== "number" || lessons === undefined) {
+    //    throw new TypeError("Lessons is not a number or it is an empty");
+    //  }
     this.lessons = lessons;
-     if (typeof description !== "string") {
-       throw new TypeError("Description is not a string");
-     }
+    //  if (typeof description !== "string") {
+    //    throw new TypeError("Description is not a string");
+    //  }
     this.description = description;
   }
 }
