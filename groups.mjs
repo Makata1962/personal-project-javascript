@@ -6,12 +6,12 @@ class Groups {
     this.id = count++;
   }
 
-  add(room) {
-    // if (typeof room !== "number") {
-    //   throw new TypeError("Parameter should be integer");
-    // }
-    this.map.set(room.id, room);
-    return room.id;
+  add(obj) {
+    if (typeof obj !== "object") {
+      throw new TypeError("Parameter should be integer");
+    }
+    this.map.set(obj.id, obj);
+    return obj.id;
   }
 
   remove(room) {
@@ -42,22 +42,3 @@ class Groups {
     console.log(array);
   }
 }
-
-const groups = new Groups();
-const classroom = {
-  id: "JEF5H43H",
-  room: 237,
-  pupils: [], // array of pupils.
-};
-const groupId = groups.add(classroom);
-
-// groups.read(groupId);
-// groups.readAll();
-
-groups.update(groupId, {
-  id: "asas",
-  room: 267,
-  pupils: [],
-});
-
-groups.read(groupId);
