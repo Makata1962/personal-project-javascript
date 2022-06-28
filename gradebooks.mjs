@@ -1,10 +1,6 @@
-import { pupil, pupil2, pupilId } from "./index.mjs";
-import { groups } from "./index.mjs";
-import { teachers, teacherId } from "./index.mjs";
-import { lms } from "./index.mjs";
 
 let count = 0;
-class Gradebook {
+export class Gradebook {
   map = new Map();
 
   constructor(groups, teachers, lms) {
@@ -17,7 +13,7 @@ class Gradebook {
   clear() {
     this.map.clear();
   }
-  add(id) {
+  add(id,record) {
     this.map.set(id, record);
   }
 
@@ -25,7 +21,7 @@ class Gradebook {
     this.map.set(gradebookId, record);
   }
   read(gradebookId, pupilId) {
-    this.map.get(gradebookId, pupilId);
+    console.log(this.map.get(gradebookId, pupilId));
   }
   readAll() {
     let array = [];
@@ -36,20 +32,3 @@ class Gradebook {
     console.log(array);
   }
 }
-
-const gradebooks = new Gradebook(groups, teachers, lms);
-
-const record = {
-  pupilId: pupilId,
-  teacherId: teacherId,
-  // subjectId: id,
-  lesson: 1,
-  mark: 9,
-};
-
-const gradebook = gradebooks.add(groups.id);
-gradebooks.addRecord(record);
-
-gradebooks.read(gradebook, pupilId);
-
-// const students = gradebooks.readAll(gradebook, pupilId);

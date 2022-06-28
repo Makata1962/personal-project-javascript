@@ -1,5 +1,5 @@
 let count = 0;
-class Groups {
+export class Groups {
   map = new Map();
 
   constructor(id) {

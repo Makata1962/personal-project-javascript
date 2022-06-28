@@ -1,7 +1,8 @@
 import { LMS, Subject } from "./lms.mjs";
-import { pupil, pupil2, pupilId } from "./pupils.mjs";
-import { groups } from "./groups.mjs";
-import { teachers, teacherId } from "./teacher.mjs";
+import { Pupils } from "./pupils.mjs";
+import { Groups } from "./groups.mjs";
+import { Teachers } from "./teacher.mjs";
+import { Gradebook } from "./gradebooks.mjs";
 
 const history = new Subject({
   title: 1,
@@ -9,48 +10,28 @@ const history = new Subject({
   description: "good",
 });
 
-export const math = new Subject({
+const math = new Subject({
   title: "math",
   lessons: 20,
   description: "bad",
 });
 
-export const lms = new LMS();
+const lms = new LMS(math);
 
-// lms.add(math);
-// lms.add(math);
+lms.add(math);
 
 lms.add(history);
-// lms.remove(math)
+lms.remove(math);
 lms.readAll();
 
-// lms.verify(math);
+lms.verify(math);
 
-export const groups = new Groups();
-const classroom = {
-  id: "JEF5H43H",
-  room: 237,
-  pupils: [], // array of pupils.
-};
-const groupId = groups.add(classroom);
-
-// groups.read(groupId);
-// groups.readAll();
-
-groups.update(groupId, {
-  id: "asas",
-  room: 267,
-  pupils: [],
-});
-
-// groups.read(groupId);
-
-export const pupil = {
+const pupil1 = {
   name: {
     first: "Ilia",
     last: "Pachulia",
   },
-  dateOfBirth: "string", // format date
+  dateOfBirth: "18.12.1970", // format date
   emails: [
     {
       email: "string",
@@ -72,7 +53,7 @@ export const pupil = {
   description: "string",
 };
 
-export const pupil2 = {
+const pupil = {
   name: {
     first: "Ilia",
     last: "Kostava",
@@ -98,7 +79,7 @@ export const pupil2 = {
   ],
   description: "",
 };
-export const pupil3 = {
+const pupil2 = {
   name: {
     first: "string",
     last: "string",
@@ -125,17 +106,17 @@ export const pupil3 = {
   description: "",
 };
 
-const pupils = new Pupils(pupil3);
-export const pupilId = pupils.add(pupil);
+const pupils = new Pupils(pupil);
+const pupilId = pupils.add(pupil);
 
 const otherpupils = new Pupils(pupil2);
-// const otherpupilId = otherpupils.add(pupil2);
+const otherpupilId = otherpupils.add(pupil2);
 
-// pupils.update(pupilId, pupil2);
+pupils.update(pupilId, pupil1);
 
-// pupils.read(pupilId);
+pupils.read(pupilId);
 
-export const teacher = {
+const teacher = {
   name: {
     first: "Koka",
     last: "Makhaldiani",
@@ -143,14 +124,14 @@ export const teacher = {
   dateOfBirth: "18/07/1998", // format date
   emails: [
     {
-      email: "string",
-      primary: "boolean",
+      email: "il.pachulia@gmail.com",
+      primary: true,
     },
   ],
   phones: [
     {
-      phone: "string",
-      primary: "boolean",
+      phone: "592102793",
+      primary: true,
     },
   ],
   sex: "string", // male or female
@@ -167,40 +148,76 @@ const teacher2 = {
     first: "Ilia",
     last: "Pachulia",
   },
-  dateOfBirth: "string", // format date
+  dateOfBirth: "10.10.2020", // format date
   emails: [
     {
-      email: "string",
-      primary: "boolean",
+      email: "il.pachulia@gmail.com",
+      primary: true,
     },
   ],
   phones: [
     {
-      phone: "string",
-      primary: "boolean",
+      phone: "591102340",
+      primary: true,
     },
   ],
-  sex: "string", // male or female
+  sex: "male", // male or female
   subjects: [
     {
-      subject: "string", // just name property of subject.
+      subject: "History", // just name property of subject.
     },
   ],
   description: "string",
 };
 
-export const teachers = new Teachers();
-export const teacherId = teachers.add(teacher);
+const teachers = new Teachers(teacher2);
+const teacherId = teachers.add(teacher2);
 
 const pachulia = new Teachers();
-const teacherId2 = pachulia.add(teacher2);
+const teacherId2 = pachulia.add();
 
-// teachers.read(teacherId);
-// pachulia.read(teacherId2);
+teachers.read(teacherId);
 
 teachers.remove(teacherId);
 
 teachers.update(teacherId, pachulia);
 
-// teachers.read(teacherId);
-// pachulia.read(teacherId2);
+teachers.read(teacherId);
+
+const group = new Groups();
+const classroom = {
+  id: "JEF5H43H",
+  room: 237,
+  pupils: [],
+};
+const groupId = group.add(classroom);
+
+group.read(groupId);
+group.readAll();
+
+group.update(groupId, {
+  id: "asas",
+  room: 267,
+  pupils: [],
+});
+
+group.read(groupId);
+
+const gradebooks = new Gradebook(Groups, Teachers, lms);
+
+const record = {
+  pupilId: pupilId,
+  teacherId: teacherId,
+  subjectId: Subject.id,
+  lesson: 1,
+  mark: 9,
+};
+const gradebookId = gradebooks.add(group.id, record);
+gradebooks.add(gradebookId, record);
+gradebooks.addRecord(gradebookId, record);
+
+gradebooks.read(gradebookId, pupilId);
+
+const students = gradebooks.readAll(gradebookId);
+
+
