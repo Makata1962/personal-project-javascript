@@ -5,16 +5,22 @@ import { Teachers } from "./teacher.js";
 import { Gradebook } from "./gradebooks.js";
 
 const history = new Subject({
-  title: 1,
+  title: "History",
   lessons: 24,
-  description: "good",
+  description: "Bad",
 });
 
-const math = new Subject({
-  title: "math",
-  lessons: 20,
-  description: "bad",
+const Math = new Subject({
+  title: "Math",
+  lessons: 12,
+  description: "Good",
 });
+
+const lms = new LMS();
+
+lms.add(history);
+lms.remove(history);
+console.log(LMS);
 
 // const lms = new LMS(math);
 // lms.add(math);

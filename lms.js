@@ -4,13 +4,12 @@ exports.Subject = exports.LMS = void 0;
 class LMS {
     constructor() {
         this.map = new Map();
-        this.count = 0;
     }
     add(subject) {
         this.map.set(subject.id, subject);
     }
     remove(subject) {
-        this.map.delete(subject.id);
+        this.map.delete(subject);
     }
     verify(subject) {
         for (let [_, val] of this.map) {
@@ -32,6 +31,7 @@ class LMS {
 exports.LMS = LMS;
 class Subject {
     constructor(subject) {
+        this.count = 0;
         this.id = this.count++;
         this.title = subject.title;
         this.lessons = subject.lessons;
@@ -39,3 +39,17 @@ class Subject {
     }
 }
 exports.Subject = Subject;
+// const history = new Subject({
+//   title: "History",
+//   lessons: 24,
+//   description: "Bad",
+// });
+// const Math = new Subject({
+//   title: "Math",
+//   lessons: 12,
+//   description: "Good",
+// });
+// const lms = new LMS();
+// lms.add(history);
+// lms.remove(history);
+// console.log(LMS);

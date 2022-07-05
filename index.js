@@ -3,15 +3,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const lms_js_1 = require("./lms.js");
 const pupils_js_1 = require("./pupils.js");
 const history = new lms_js_1.Subject({
-    title: 1,
+    title: "History",
     lessons: 24,
-    description: "good",
+    description: "Bad",
 });
-const math = new lms_js_1.Subject({
-    title: "math",
-    lessons: 20,
-    description: "bad",
+const Math = new lms_js_1.Subject({
+    title: "Math",
+    lessons: 12,
+    description: "Good",
 });
+const lms = new lms_js_1.LMS();
+lms.add(history);
+lms.remove(history);
+console.log(lms_js_1.LMS);
 // const lms = new LMS(math);
 // lms.add(math);
 // lms.add(history);
