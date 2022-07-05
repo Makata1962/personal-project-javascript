@@ -1,7 +1,7 @@
 import { LMS, Subject } from "./lms.js";
-// import { Pupils } from "./pupils.js";
+import { Pupil, Pupils } from "./pupils.js";
 // import { Groups } from "./groups.js";
-// import { Teachers } from "./teacher.js";
+import { Teachers } from "./teacher.js";
 // import { Gradebook } from "./gradebooks.js";
 
 const history = new Subject({
@@ -10,26 +10,25 @@ const history = new Subject({
   description: "Bad",
 });
 
-const Math = new Subject({
+const math = new Subject({
   title: "Math",
   lessons: 12,
   description: "Good",
 });
+const biology = new Subject({
+  title: "Biology",
+  lessons: 10,
+  description: "Perfect",
+});
 
 const lms = new LMS();
 
+lms.add(math);
 lms.add(history);
+lms.add(biology);
 lms.remove(history);
-console.log(LMS);
-
-// const lms = new LMS(math);
-// lms.add(math);
-
-// lms.add(history);
-// lms.remove(math);
-// lms.readAll();
-
-// lms.verify(math);
+console.log(lms.verify(history));
+console.log(lms.readAll());
 
 const pupil1 = {
   name: {
@@ -58,18 +57,14 @@ const pupil1 = {
   description: "string",
 };
 
-const pupil = {
+
+
+const pupil: Pupil = {
   name: {
     first: "Ilia",
-    last: "Kostava",
+    last: "Pachulia",
   },
-  dateOfBirth: "18/07/1998", // format date
-  emails: [
-    {
-      email: "ipach17@freeuni.edu.ge",
-      primary: true,
-    },
-  ],
+  dateOfBirth: "18/07/2000", // format date
   phones: [
     {
       phone: "592102793",
@@ -77,25 +72,14 @@ const pupil = {
     },
   ],
   sex: "male", // male or female
-  subjects: [
-    {
-      subject: "History", // just name property of subject.
-    },
-  ],
   description: "",
 };
-const pupil2 = {
+const pupil2: Pupil = {
   name: {
-    first: "string",
-    last: "string",
+    first: "Irakli",
+    last: "Pachulia",
   },
-  dateOfBirth: "18/07/1998", // format date
-  emails: [
-    {
-      email: "ipach17@freeuni.edu.ge",
-      primary: true,
-    },
-  ],
+  dateOfBirth: "18/07/2002", // format date
   phones: [
     {
       phone: "592102793",
@@ -103,23 +87,21 @@ const pupil2 = {
     },
   ],
   sex: "male", // male or female
-  subjects: [
-    {
-      subject: "History", // just name property of subject.
-    },
-  ],
   description: "",
 };
 
-// const pupils = new Pupils(pupil);
-// const pupilId = pupils.add(pupil);
+const pupils = new Pupils(pupil);
+const pupilId = pupils.add(pupil);
 
-// const otherpupils = new Pupils(pupil2);
-// const otherpupilId = otherpupils.add(pupil2);
+// console.log(pupils.read(pupilId));
+// pupils.update(pupilId, pupil2);
 
-// pupils.update(pupilId, pupil1);
+const pupilId2 = pupils.add(pupil2);
+console.log(pupils);
+pupils.remove(pupilId2);
 
-// pupils.read(pupilId);
+console.log(pupils);
+
 
 /*
 const teacher = {

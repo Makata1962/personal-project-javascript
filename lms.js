@@ -48,9 +48,3 @@ const math = new Subject({
     lessons: 12,
     description: "Good",
 });
-const lms = new LMS();
-lms.add(math);
-lms.add(history);
-lms.remove(history);
-console.log(lms.readAll());
-console.log(lms.verify(history));

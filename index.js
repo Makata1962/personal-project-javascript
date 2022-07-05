@@ -1,30 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const lms_js_1 = require("./lms.js");
-// import { Pupils } from "./pupils.js";
-// import { Groups } from "./groups.js";
-// import { Teachers } from "./teacher.js";
+const pupils_js_1 = require("./pupils.js");
 // import { Gradebook } from "./gradebooks.js";
 const history = new lms_js_1.Subject({
     title: "History",
     lessons: 24,
     description: "Bad",
 });
-const Math = new lms_js_1.Subject({
+const math = new lms_js_1.Subject({
     title: "Math",
     lessons: 12,
     description: "Good",
 });
+const biology = new lms_js_1.Subject({
+    title: "Biology",
+    lessons: 10,
+    description: "Perfect",
+});
 const lms = new lms_js_1.LMS();
+lms.add(math);
 lms.add(history);
+lms.add(biology);
 lms.remove(history);
-console.log(lms_js_1.LMS);
-// const lms = new LMS(math);
-// lms.add(math);
-// lms.add(history);
-// lms.remove(math);
-// lms.readAll();
-// lms.verify(math);
+console.log(lms.verify(history));
+console.log(lms.readAll());
 const pupil1 = {
     name: {
         first: "Ilia",
@@ -54,15 +54,9 @@ const pupil1 = {
 const pupil = {
     name: {
         first: "Ilia",
-        last: "Kostava",
+        last: "Pachulia",
     },
-    dateOfBirth: "18/07/1998",
-    emails: [
-        {
-            email: "ipach17@freeuni.edu.ge",
-            primary: true,
-        },
-    ],
+    dateOfBirth: "18/07/2000",
     phones: [
         {
             phone: "592102793",
@@ -70,25 +64,14 @@ const pupil = {
         },
     ],
     sex: "male",
-    subjects: [
-        {
-            subject: "History", // just name property of subject.
-        },
-    ],
     description: "",
 };
 const pupil2 = {
     name: {
-        first: "string",
-        last: "string",
+        first: "Irakli",
+        last: "Pachulia",
     },
-    dateOfBirth: "18/07/1998",
-    emails: [
-        {
-            email: "ipach17@freeuni.edu.ge",
-            primary: true,
-        },
-    ],
+    dateOfBirth: "18/07/2002",
     phones: [
         {
             phone: "592102793",
@@ -96,19 +79,16 @@ const pupil2 = {
         },
     ],
     sex: "male",
-    subjects: [
-        {
-            subject: "History", // just name property of subject.
-        },
-    ],
     description: "",
 };
-// const pupils = new Pupils(pupil);
-// const pupilId = pupils.add(pupil);
-// const otherpupils = new Pupils(pupil2);
-// const otherpupilId = otherpupils.add(pupil2);
-// pupils.update(pupilId, pupil1);
-// pupils.read(pupilId);
+const pupils = new pupils_js_1.Pupils(pupil);
+const pupilId = pupils.add(pupil);
+// console.log(pupils.read(pupilId));
+// pupils.update(pupilId, pupil2);
+const pupilId2 = pupils.add(pupil2);
+console.log(pupils);
+pupils.remove(pupilId2);
+console.log(pupils);
 /*
 const teacher = {
   name: {

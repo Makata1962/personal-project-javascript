@@ -1,72 +1,51 @@
-// let count = 0;
+type Phone = {
+  phone: string;
+  primary: boolean;
+};
 
-// export class Pupils {
-//   map = new Map();
+type Name = {
+  first: string;
+  last: string;
+};
 
-//   id: number;
-//   name: object;
-//   dateOfBirth: string;
-//   phones: object[];
-//   sex: string;
-//   description: string;
-//   constructor(pupil: object) {
-//     this.id = count++;
+export interface Pupil {
+  name: Name;
+  dateOfBirth: string;
+  phones: Phone[];
+  sex: string;
+  description?: string;
+}
 
-//     this.name = pupil2.name;
+export class Pupils {
+  map = new Map();
 
-//     this.dateOfBirth = pupil2.dateOfBirth;
+  id: number;
+  name: object;
+  dateOfBirth: string;
+  phones: object[];
+  sex: string;
+  description?: string;
 
-//     this.phones = pupil2.phones;
+  constructor(pupil: Pupil) {
+    this.id = Math.floor(Math.random() * 100);
+    this.name = pupil.name;
+    this.dateOfBirth = pupil.dateOfBirth;
+    this.phones = pupil.phones;
+    this.sex = pupil.sex;
+    this.description = pupil.description;
+  }
 
-//     this.sex = pupil2.sex;
-
-//     this.description = pupil2.description;
-//   }
-//   add(pupil: object) {
-//     this.map.set(this.id, pupil);
-//     return this.id;
-//   }
-//   read(id: number) {
-//     console.log(this.map.get(id));
-//   }
-//   update(id: number, pupil: object) {
-//     console.log(this.map.set(id, pupil));
-//   }
-//   remove(id: number) {
-//     this.map.delete(pupil2);
-//   }
-// }
-
-
-
-
-
-// const pupil2 = {
-//   name: {
-//     first: "string",
-//     last: "string",
-//   },
-//   dateOfBirth: "18/07/1998", // format date
-//   emails: [
-//     {
-//       email: "ipach17@freeuni.edu.ge",
-//       primary: true,
-//     },
-//   ],
-//   phones: [
-//     {
-//       phone: "592102793",
-//       primary: true,
-//     },
-//   ],
-//   sex: "male", // male or female
-//   subjects: [
-//     {
-//       subject: "History", // just name property of subject.
-//     },
-//   ],
-//   description: "",
-// };
-
-// const pupils = new Pupils(pupil2);
-// const pupilId = pupils.add(pupil2);
+  add(pupil: Pupil) {
+    this.map.set(this.id, pupil);
+    return this.id;
+  }
+  read(id: number) {
+    return this.map.get(id);
+  }
+  update(id: number, pupil: Pupil) {
+    console.log(this.map.set(id, pupil));
+  }
+  remove(id: number) {
+    this.map.delete(id);
+  }
+}

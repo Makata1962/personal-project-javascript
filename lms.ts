@@ -38,7 +38,7 @@ export class Subject {
   id: number;
   title: string;
   lessons: number;
-  description: string | undefined;
+  description?: string;
 
   constructor(subject: subject) {
     this.id = Math.floor(Math.random() * 100);
@@ -60,10 +60,3 @@ const math = new Subject({
   description: "Good",
 });
 
-const lms = new LMS();
-
-lms.add(math);
-lms.add(history);
-lms.remove(history);
-console.log(lms.readAll());
-console.log(lms.verify(history));
