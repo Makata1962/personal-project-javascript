@@ -1,51 +1,70 @@
-// let count = 0;
-// export class Groups {
-//   map = new Map();
-//   id: number;
-//   constructor(id: number) {
-//     this.id = count++;
-//   }
+import { Pupil } from "./pupils";
 
-//   add(obj: object) {
-//     this.map.set(obj.id, obj);
-//     return obj.id;
-//   }
+export interface Group {
+  id: string;
+  room: number;
+  pupils: Pupil[];
+}
 
-//   remove(room: number) {
-//     this.map.delete(room.id);
-//   }
+export class Groups {
+  map = new Map();
+  id?: string;
+  room: number;
+  pupils: Pupil[];
 
-//   verify(room: number) {
-//     for (let [_, val] of this.map) {
-//       if (JSON.stringify(room) == JSON.stringify(val)) {
-//         return true;
-//       } else return false;
-//     }
-//   }
+  constructor(group: Group) {
+    this.room = group.room;
+    this.pupils = group.pupils;
+    this.id = group.id;
+  }
 
-//   update(id: number, group: object) {
-//     this.map.set(id, group);
-//   }
+  add(obj: Group) {
+    this.map.set(obj.id, obj);
+    return obj.id;
+  }
 
-//   read(id: number) {
-//     console.log(this.map.get(id));
-//   }
-//   readAll() {
-//     let array: object[] = [];
-//     let newArr = this.map.forEach(function (item) {
-//       array.push(item);
-//     });
+  addPupil(id: string, pupil: Pupil) {
+    this.map.set(id, pupil);
+  }
 
-//     console.log(array);
-//   }
-// }
+  verify(room: number) {
+    for (let [_, val] of this.map) {
+      if (JSON.stringify(room) == JSON.stringify(val)) {
+        return true;
+      } else return false;
+    }
+  }
 
+  update(id: number, group: object) {
+    this.map.set(id, group);
+  }
 
+  read(id: number) {
+    console.log(this.map.get(id));
+  }
+  readAll() {
+    let array: object[] = [];
+    let newArr = this.map.forEach(function (item) {
+      array.push(item);
+    });
 
-// const group = new Groups();
+    console.log(array);
+  }
+}
+
+const classroom = {
+  id: "JEF5H43H",
+  room: 237,
+  pupils: [],
+};
+
+const secondRoom = {
+  id: "JEF5H3H",
+  room: 240,
+  pupils: [],
+};
+
+const groups = new Groups(classroom);
+groups.add(secondRoom);
+
 // const groupId = group.add();
-// const classroom = {
-//   id: "JEF5H43H",
-//   room: 237,
-//   pupils: [],
-// };

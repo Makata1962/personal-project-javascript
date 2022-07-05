@@ -103,7 +103,7 @@ pupils.remove(pupilId2);
 console.log(pupils);
 
 
-/*
+
 const teacher = {
   name: {
     first: "Koka",
@@ -131,46 +131,11 @@ const teacher = {
   description: "string",
 };
 
-const teacher2 = {
-  name: {
-    first: "Ilia",
-    last: "Pachulia",
-  },
-  dateOfBirth: "10.10.2020", // format date
-  emails: [
-    {
-      email: "il.pachulia@gmail.com",
-      primary: true,
-    },
-  ],
-  phones: [
-    {
-      phone: "591102340",
-      primary: true,
-    },
-  ],
-  sex: "male", // male or female
-  subjects: [
-    {
-      subject: "History", // just name property of subject.
-    },
-  ],
-  description: "string",
-};
+const teachers = new Teachers(teacher);
+const teachersId = teachers.add(teachers);
 
-const teachers = new Teachers(teacher2);
-const teacherId = teachers.add(teacher2);
 
-const pachulia = new Teachers();
-const teacherId2 = pachulia.add();
-
-teachers.read(teacherId);
-
-teachers.remove(teacherId);
-
-teachers.update(teacherId, pachulia);
-
-teachers.read(teacherId);
+/*
 
 const group = new Groups();
 const classroom = {

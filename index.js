@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const lms_js_1 = require("./lms.js");
 const pupils_js_1 = require("./pupils.js");
+// import { Groups } from "./groups.js";
+const teacher_js_1 = require("./teacher.js");
 // import { Gradebook } from "./gradebooks.js";
 const history = new lms_js_1.Subject({
     title: "History",
@@ -89,74 +91,35 @@ const pupilId2 = pupils.add(pupil2);
 console.log(pupils);
 pupils.remove(pupilId2);
 console.log(pupils);
-/*
 const teacher = {
-  name: {
-    first: "Koka",
-    last: "Makhaldiani",
-  },
-  dateOfBirth: "18/07/1998", // format date
-  emails: [
-    {
-      email: "il.pachulia@gmail.com",
-      primary: true,
+    name: {
+        first: "Koka",
+        last: "Makhaldiani",
     },
-  ],
-  phones: [
-    {
-      phone: "592102793",
-      primary: true,
-    },
-  ],
-  sex: "string", // male or female
-  subjects: [
-    {
-      subject: "string", // just name property of subject.
-    },
-  ],
-  description: "string",
+    dateOfBirth: "18/07/1998",
+    emails: [
+        {
+            email: "il.pachulia@gmail.com",
+            primary: true,
+        },
+    ],
+    phones: [
+        {
+            phone: "592102793",
+            primary: true,
+        },
+    ],
+    sex: "string",
+    subjects: [
+        {
+            subject: "string", // just name property of subject.
+        },
+    ],
+    description: "string",
 };
-
-const teacher2 = {
-  name: {
-    first: "Ilia",
-    last: "Pachulia",
-  },
-  dateOfBirth: "10.10.2020", // format date
-  emails: [
-    {
-      email: "il.pachulia@gmail.com",
-      primary: true,
-    },
-  ],
-  phones: [
-    {
-      phone: "591102340",
-      primary: true,
-    },
-  ],
-  sex: "male", // male or female
-  subjects: [
-    {
-      subject: "History", // just name property of subject.
-    },
-  ],
-  description: "string",
-};
-
-const teachers = new Teachers(teacher2);
-const teacherId = teachers.add(teacher2);
-
-const pachulia = new Teachers();
-const teacherId2 = pachulia.add();
-
-teachers.read(teacherId);
-
-teachers.remove(teacherId);
-
-teachers.update(teacherId, pachulia);
-
-teachers.read(teacherId);
+const teachers = new teacher_js_1.Teachers(teacher);
+const teachersId = teachers.add(teachers);
+/*
 
 const group = new Groups();
 const classroom = {
