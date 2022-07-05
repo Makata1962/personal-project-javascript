@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const lms_js_1 = require("../lms.js");
+const lms_js_1 = require("./lms.js");
+const pupils_js_1 = require("./pupils.js");
 const history = new lms_js_1.Subject({
     title: 1,
     lessons: 24,
@@ -11,103 +12,97 @@ const math = new lms_js_1.Subject({
     lessons: 20,
     description: "bad",
 });
-const lms = new lms_js_1.LMS(math);
+// const lms = new LMS(math);
 // lms.add(math);
 // lms.add(history);
 // lms.remove(math);
-lms.readAll();
+// lms.readAll();
 // lms.verify(math);
-/*
 const pupil1 = {
-  name: {
-    first: "Ilia",
-    last: "Pachulia",
-  },
-  dateOfBirth: "18.12.1970", // format date
-  emails: [
-    {
-      email: "string",
-      primary: "boolean",
+    name: {
+        first: "Ilia",
+        last: "Pachulia",
     },
-  ],
-  phones: [
-    {
-      phone: "string",
-      primary: "boolean",
-    },
-  ],
-  sex: "string", // male or female
-  subjects: [
-    {
-      subject: "string", // just name property of subject.
-    },
-  ],
-  description: "string",
+    dateOfBirth: "18.12.1970",
+    emails: [
+        {
+            email: "string",
+            primary: "boolean",
+        },
+    ],
+    phones: [
+        {
+            phone: "string",
+            primary: "boolean",
+        },
+    ],
+    sex: "string",
+    subjects: [
+        {
+            subject: "string", // just name property of subject.
+        },
+    ],
+    description: "string",
 };
-
 const pupil = {
-  name: {
-    first: "Ilia",
-    last: "Kostava",
-  },
-  dateOfBirth: "18/07/1998", // format date
-  emails: [
-    {
-      email: "ipach17@freeuni.edu.ge",
-      primary: true,
+    name: {
+        first: "Ilia",
+        last: "Kostava",
     },
-  ],
-  phones: [
-    {
-      phone: "592102793",
-      primary: true,
-    },
-  ],
-  sex: "male", // male or female
-  subjects: [
-    {
-      subject: "History", // just name property of subject.
-    },
-  ],
-  description: "",
+    dateOfBirth: "18/07/1998",
+    emails: [
+        {
+            email: "ipach17@freeuni.edu.ge",
+            primary: true,
+        },
+    ],
+    phones: [
+        {
+            phone: "592102793",
+            primary: true,
+        },
+    ],
+    sex: "male",
+    subjects: [
+        {
+            subject: "History", // just name property of subject.
+        },
+    ],
+    description: "",
 };
 const pupil2 = {
-  name: {
-    first: "string",
-    last: "string",
-  },
-  dateOfBirth: "18/07/1998", // format date
-  emails: [
-    {
-      email: "ipach17@freeuni.edu.ge",
-      primary: true,
+    name: {
+        first: "string",
+        last: "string",
     },
-  ],
-  phones: [
-    {
-      phone: "592102793",
-      primary: true,
-    },
-  ],
-  sex: "male", // male or female
-  subjects: [
-    {
-      subject: "History", // just name property of subject.
-    },
-  ],
-  description: "",
+    dateOfBirth: "18/07/1998",
+    emails: [
+        {
+            email: "ipach17@freeuni.edu.ge",
+            primary: true,
+        },
+    ],
+    phones: [
+        {
+            phone: "592102793",
+            primary: true,
+        },
+    ],
+    sex: "male",
+    subjects: [
+        {
+            subject: "History", // just name property of subject.
+        },
+    ],
+    description: "",
 };
-
-const pupils = new Pupils(pupil);
+const pupils = new pupils_js_1.Pupils(pupil);
 const pupilId = pupils.add(pupil);
-
-const otherpupils = new Pupils(pupil2);
+const otherpupils = new pupils_js_1.Pupils(pupil2);
 const otherpupilId = otherpupils.add(pupil2);
-
-pupils.update(pupilId, pupil1);
-
-pupils.read(pupilId);
-
+// pupils.update(pupilId, pupil1);
+// pupils.read(pupilId);
+/*
 const teacher = {
   name: {
     first: "Koka",

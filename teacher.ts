@@ -3,78 +3,73 @@ let regex =
   "s+(?:0[1-9]|[12][0-9]|3[01])[-/.](?:0[1-9]|1[012])[-/.](?:19d{2}|20[01][0-9]|2020)";
 export class Teachers {
   map = new Map();
-  constructor(teacher) {
+  id: number;
+  name: object;
+  dateOfBirth: string;
+  emails: string[];
+  phones: object[];
+  sex: string;
+  subjects: object[];
+  description: string;
+  constructor(teacher: object) {
     this.id = count++;
-    if (
-      typeof teacher.name.first != "string" ||
-      typeof teacher.name.last != "string" ||
-      typeof teacher.name != "object"
-    ) {
-      throw new TypeError("Invalid Parameters");
-    }
-    this.name = teacher.name;
-    if (
-      teacher.dateOfBirth === undefined ||
-      typeof teacher.dateOfBirth !== "string"
-    ) {
-      throw new TypeError("dateOfBirth is not a string or format is not valid");
-    }
-    this.dateOfBirth = teacher.dateOfBirth;
 
-    if (
-      teacher.emails === undefined ||
-      !Array.isArray(teacher.emails) ||
-      typeof teacher.emails[0].email !== "string" ||
-      typeof teacher.emails[0].primary === false
-    ) {
-      throw new TypeError("Email is not a string or primary is not filled");
-    }
-    this.emails = {}.emails;
+    this.name = teachers.name;
 
-    if (
-      teacher.phones === undefined ||
-      !Array.isArray(teacher.phones) ||
-      typeof teacher.phones[0].phone !== "string" ||
-      typeof teacher.phones[0].primary === false
-    ) {
-      throw new TypeError("Phone is not a string or primary is not filled");
-    }
-    this.phones = teacher.phones;
+    this.dateOfBirth = teachers.dateOfBirth;
 
-    if (
-      teacher.sex === undefined ||
-      (typeof teacher.sex !== "string" &&
-        ({}.sex !== "male" || {}.sex !== "female"))
-    ) {
-      throw new TypeError("You should choose Male or Female");
-    }
+    this.emails = teachers.emails;
 
-    this.sex = teacher.sex;
-    if (
-      teacher.subjects === undefined ||
-      !Array.isArray(teacher.subjects) ||
-      typeof teacher.subjects[0].subject !== "string"
-    ) {
-      throw new TypeError("Subjects should be an array and subject - string");
-    }
-    this.subjects = teacher.subjects;
-    if (typeof teacher.description !== "string") {
-      throw new TypeError("description should be a string");
-    }
-    this.description = teacher.description;
+    this.phones = teachers.phones;
+
+    this.sex = teachers.sex;
+
+    this.subjects = teachers.subjects;
+
+    this.description = teachers.description;
   }
-  add(teacher) {
+  add(teacher: object) {
     this.map.set(this.id, teacher);
     return this.id;
   }
-  read(id) {
+  read(id: number) {
     console.log(this.map.get(id));
   }
-  update(id, teacher) {
+  update(id: number, teacher: object) {
     this.map.set(id, teacher);
-    return this.teacher;
+    return teacher;
   }
-  remove(id) {
+  remove(id: number) {
     this.map.delete(id);
   }
 }
+
+const teacher = {
+  name: {
+    first: "Koka",
+    last: "Makhaldiani",
+  },
+  dateOfBirth: "18/07/1998", // format date
+  emails: [
+    {
+      email: "il.pachulia@gmail.com",
+      primary: true,
+    },
+  ],
+  phones: [
+    {
+      phone: "592102793",
+      primary: true,
+    },
+  ],
+  sex: "string", // male or female
+  subjects: [
+    {
+      subject: "string", // just name property of subject.
+    },
+  ],
+  description: "string",
+};
+
+const teachers = new Teachers(teacher);
+const teachersId = teachers.add(teachers);

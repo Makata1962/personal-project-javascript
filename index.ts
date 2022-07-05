@@ -16,17 +16,17 @@ const math = new Subject({
   description: "bad",
 });
 
-const lms = new LMS(math);
+// const lms = new LMS(math);
 // lms.add(math);
 
 // lms.add(history);
 // lms.remove(math);
-lms.readAll();
+// lms.readAll();
 
 
 // lms.verify(math);
 
-/*
+
 const pupil1 = {
   name: {
     first: "Ilia",
@@ -113,10 +113,11 @@ const pupilId = pupils.add(pupil);
 const otherpupils = new Pupils(pupil2);
 const otherpupilId = otherpupils.add(pupil2);
 
-pupils.update(pupilId, pupil1);
+// pupils.update(pupilId, pupil1);
 
-pupils.read(pupilId);
+// pupils.read(pupilId);
 
+/*
 const teacher = {
   name: {
     first: "Koka",
