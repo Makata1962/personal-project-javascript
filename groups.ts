@@ -7,9 +7,7 @@ export class Groups {
   }
 
   add(obj) {
-    if (typeof obj !== "object") {
-      throw new TypeError("Parameter should be integer");
-    }
+  
     this.map.set(obj.id, obj);
     return obj.id;
   }

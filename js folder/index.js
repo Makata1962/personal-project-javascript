@@ -1,31 +1,23 @@
-import { LMS, Subject } from "./lms.mjs";
-import { Pupils } from "./pupils.mjs";
-import { Groups } from "./groups.mjs";
-import { Teachers } from "./teacher.mjs";
-import { Gradebook } from "./gradebooks.mjs";
-
-const history = new Subject({
-  title: 1,
-  lessons: 24,
-  description: "good",
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lms_js_1 = require("../lms.js");
+const history = new lms_js_1.Subject({
+    title: 1,
+    lessons: 24,
+    description: "good",
 });
-
-const math = new Subject({
-  title: "math",
-  lessons: 20,
-  description: "bad",
+const math = new lms_js_1.Subject({
+    title: "math",
+    lessons: 20,
+    description: "bad",
 });
-
-const lms = new LMS(math);
-
-lms.add(math);
-
-lms.add(history);
-lms.remove(math);
+const lms = new lms_js_1.LMS(math);
+// lms.add(math);
+// lms.add(history);
+// lms.remove(math);
 lms.readAll();
-
-lms.verify(math);
-
+// lms.verify(math);
+/*
 const pupil1 = {
   name: {
     first: "Ilia",
@@ -221,3 +213,6 @@ gradebooks.read(gradebookId, pupilId);
 const students = gradebooks.readAll(gradebookId);
 
 
+
+
+*/ 
