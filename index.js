@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const lms_js_1 = require("./lms.js");
-const pupils_js_1 = require("./pupils.js");
+// import { Pupils } from "./pupils.js";
+// import { Groups } from "./groups.js";
+// import { Teachers } from "./teacher.js";
+// import { Gradebook } from "./gradebooks.js";
 const history = new lms_js_1.Subject({
     title: "History",
     lessons: 24,
@@ -100,10 +103,10 @@ const pupil2 = {
     ],
     description: "",
 };
-const pupils = new pupils_js_1.Pupils(pupil);
-const pupilId = pupils.add(pupil);
-const otherpupils = new pupils_js_1.Pupils(pupil2);
-const otherpupilId = otherpupils.add(pupil2);
+// const pupils = new Pupils(pupil);
+// const pupilId = pupils.add(pupil);
+// const otherpupils = new Pupils(pupil2);
+// const otherpupilId = otherpupils.add(pupil2);
 // pupils.update(pupilId, pupil1);
 // pupils.read(pupilId);
 /*
@@ -214,4 +217,4 @@ const students = gradebooks.readAll(gradebookId);
 
 
 
-*/ 
+*/

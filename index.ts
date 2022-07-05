@@ -1,8 +1,8 @@
 import { LMS, Subject } from "./lms.js";
-import { Pupils } from "./pupils.js";
-import { Groups } from "./groups.js";
-import { Teachers } from "./teacher.js";
-import { Gradebook } from "./gradebooks.js";
+// import { Pupils } from "./pupils.js";
+// import { Groups } from "./groups.js";
+// import { Teachers } from "./teacher.js";
+// import { Gradebook } from "./gradebooks.js";
 
 const history = new Subject({
   title: "History",
@@ -29,9 +29,7 @@ console.log(LMS);
 // lms.remove(math);
 // lms.readAll();
 
-
 // lms.verify(math);
-
 
 const pupil1 = {
   name: {
@@ -113,11 +111,11 @@ const pupil2 = {
   description: "",
 };
 
-const pupils = new Pupils(pupil);
-const pupilId = pupils.add(pupil);
+// const pupils = new Pupils(pupil);
+// const pupilId = pupils.add(pupil);
 
-const otherpupils = new Pupils(pupil2);
-const otherpupilId = otherpupils.add(pupil2);
+// const otherpupils = new Pupils(pupil2);
+// const otherpupilId = otherpupils.add(pupil2);
 
 // pupils.update(pupilId, pupil1);
 

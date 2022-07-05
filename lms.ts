@@ -13,7 +13,7 @@ export class LMS {
   }
 
   remove(subject: subject) {
-    this.map.delete(subject);
+    this.map.delete(subject.id);
   }
 
   verify(subject: subject) {
@@ -35,34 +35,35 @@ export class LMS {
 }
 
 export class Subject {
-  count = 0;
   id: number;
   title: string;
   lessons: number;
   description: string | undefined;
 
   constructor(subject: subject) {
-    this.id = this.count++;
+    this.id = Math.floor(Math.random() * 100);
     this.title = subject.title;
     this.lessons = subject.lessons;
     this.description = subject.description;
   }
 }
 
-// const history = new Subject({
-//   title: "History",
-//   lessons: 24,
-//   description: "Bad",
-// });
+const history = new Subject({
+  title: "History",
+  lessons: 24,
+  description: "Bad",
+});
 
-// const Math = new Subject({
-//   title: "Math",
-//   lessons: 12,
-//   description: "Good",
-// });
+const math = new Subject({
+  title: "Math",
+  lessons: 12,
+  description: "Good",
+});
 
-// const lms = new LMS();
+const lms = new LMS();
 
-// lms.add(history);
-// lms.remove(history);
-// console.log(LMS);
+lms.add(math);
+lms.add(history);
+lms.remove(history);
+console.log(lms.readAll());
+console.log(lms.verify(history));
