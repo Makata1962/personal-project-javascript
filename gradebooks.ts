@@ -8,7 +8,7 @@ type GradebookType = {
   lms: LMS;
 };
 
-type record = {
+export type record = {
   pupilId: number;
   teacherId: number;
   subjectId: number;

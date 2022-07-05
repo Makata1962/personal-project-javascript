@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const lms_js_1 = require("./lms.js");
 const pupils_js_1 = require("./pupils.js");
-// import { Groups } from "./groups.js";
+const groups_js_1 = require("./groups.js");
 const teacher_js_1 = require("./teacher.js");
-// import { Gradebook } from "./gradebooks.js";
+const gradebooks_js_1 = require("./gradebooks.js");
 const history = new lms_js_1.Subject({
     title: "History",
     lessons: 24,
@@ -119,45 +119,30 @@ const teacher = {
 };
 const teachers = new teacher_js_1.Teachers(teacher);
 const teachersId = teachers.add(teachers);
-/*
-
-const group = new Groups();
 const classroom = {
-  id: "JEF5H43H",
-  room: 237,
-  pupils: [],
+    id: "JEF5H43H",
+    room: 237,
+    pupils: [],
 };
-const groupId = group.add(classroom);
-
-group.read(groupId);
-group.readAll();
-
-group.update(groupId, {
-  id: "asas",
-  room: 267,
-  pupils: [],
-});
-
-group.read(groupId);
-
-const gradebooks = new Gradebook(Groups, Teachers, lms);
-
-const record = {
-  pupilId: pupilId,
-  teacherId: teacherId,
-  subjectId: Subject.id,
-  lesson: 1,
-  mark: 9,
+const secondRoom = {
+    id: "JEF5H3H",
+    room: 240,
+    pupils: [],
 };
-const gradebookId = gradebooks.add(group.id, record);
-gradebooks.add(gradebookId, record);
-gradebooks.addRecord(gradebookId, record);
-
-gradebooks.read(gradebookId, pupilId);
-
-const students = gradebooks.readAll(gradebookId);
-
-
-
-
-*/
+const groups = new groups_js_1.Groups(classroom);
+groups.add(secondRoom);
+console.log("group", groups);
+// const groupId = group.add();
+const gradebooks = new gradebooks_js_1.Gradebook(groups, teachers, lms);
+const rec = {
+    pupilId: pupilId,
+    teacherId: teachersId,
+    subjectId: biology.id,
+    lesson: 1,
+    mark: 9,
+};
+// const gradebookId = gradebooks.add(group.id, record);
+// gradebooks.add(gradebookId, record);
+// gradebooks.addRecord(gradebookId, record);
+// gradebooks.read(gradebookId, pupilId);
+// const students = gradebooks.readAll(gradebookId);

@@ -8,7 +8,7 @@ export interface Group {
 
 export class Groups {
   map = new Map();
-  id?: string;
+  id: string;
   room: number;
   pupils: Pupil[];
 
@@ -51,20 +51,3 @@ export class Groups {
     console.log(array);
   }
 }
-
-const classroom = {
-  id: "JEF5H43H",
-  room: 237,
-  pupils: [],
-};
-
-const secondRoom = {
-  id: "JEF5H3H",
-  room: 240,
-  pupils: [],
-};
-
-const groups = new Groups(classroom);
-groups.add(secondRoom);
-
-// const groupId = group.add();

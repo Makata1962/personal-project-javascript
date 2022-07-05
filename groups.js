@@ -39,16 +39,3 @@ class Groups {
     }
 }
 exports.Groups = Groups;
-const classroom = {
-    id: "JEF5H43H",
-    room: 237,
-    pupils: [],
-};
-const secondRoom = {
-    id: "JEF5H3H",
-    room: 240,
-    pupils: [],
-};
-const groups = new Groups(classroom);
-groups.add(secondRoom);
-// const groupId = group.add();

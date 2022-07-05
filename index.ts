@@ -1,8 +1,8 @@
 import { LMS, Subject } from "./lms.js";
 import { Pupil, Pupils } from "./pupils.js";
-// import { Groups } from "./groups.js";
+import { Groups } from "./groups.js";
 import { Teachers } from "./teacher.js";
-// import { Gradebook } from "./gradebooks.js";
+import { Gradebook, record } from "./gradebooks.js";
 
 const history = new Subject({
   title: "History",
@@ -57,8 +57,6 @@ const pupil1 = {
   description: "string",
 };
 
-
-
 const pupil: Pupil = {
   name: {
     first: "Ilia",
@@ -102,8 +100,6 @@ pupils.remove(pupilId2);
 
 console.log(pupils);
 
-
-
 const teacher = {
   name: {
     first: "Koka",
@@ -134,46 +130,37 @@ const teacher = {
 const teachers = new Teachers(teacher);
 const teachersId = teachers.add(teachers);
 
-
-/*
-
-const group = new Groups();
 const classroom = {
   id: "JEF5H43H",
   room: 237,
   pupils: [],
 };
-const groupId = group.add(classroom);
 
-group.read(groupId);
-group.readAll();
-
-group.update(groupId, {
-  id: "asas",
-  room: 267,
+const secondRoom = {
+  id: "JEF5H3H",
+  room: 240,
   pupils: [],
-});
+};
+const groups = new Groups(classroom);
+groups.add(secondRoom);
 
-group.read(groupId);
+console.log("group", groups);
 
-const gradebooks = new Gradebook(Groups, Teachers, lms);
+// const groupId = group.add();
 
-const record = {
+const gradebooks = new Gradebook(groups, teachers, lms);
+
+const rec: record = {
   pupilId: pupilId,
-  teacherId: teacherId,
-  subjectId: Subject.id,
+  teacherId: teachersId,
+  subjectId: biology.id,
   lesson: 1,
   mark: 9,
 };
-const gradebookId = gradebooks.add(group.id, record);
-gradebooks.add(gradebookId, record);
-gradebooks.addRecord(gradebookId, record);
+// const gradebookId = gradebooks.add(group.id, record);
+// gradebooks.add(gradebookId, record);
+// gradebooks.addRecord(gradebookId, record);
 
-gradebooks.read(gradebookId, pupilId);
+// gradebooks.read(gradebookId, pupilId);
 
-const students = gradebooks.readAll(gradebookId);
-
-
-
-
-*/
+// const students = gradebooks.readAll(gradebookId);
